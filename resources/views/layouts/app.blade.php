@@ -73,15 +73,17 @@
         </nav> -->
 
         <header>
-            <h1 id="logo">{{ config('app.name') }}</h1>
+            <img id="logo" src="{{ asset('assets/logo.svg') }}" alt="Logo Dev Finance">
         </header>
 
         <main class="py-4">
             @yield('content')
         </main>
 
+        @include('layouts.partials.modal')
+
         <footer>
-            {{ config('app.name') }}
+            <p>{{ config('app.name') }}</p>
         </footer>
     </div>
 </body>

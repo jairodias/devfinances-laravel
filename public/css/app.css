@@ -1,6 +1,15 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,400&display=swap);@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
 
-0,200;0,400;0,700;1,100;1,200;1,400&display=swap);h2 {
+  #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+h2 {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
   color: #363f5f;
@@ -11,6 +20,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 93.75%;
 }
 
 body {
@@ -18,12 +32,23 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 header {
   background: #2D4A22;
   padding: 2rem 0 10rem;
   text-align: center;
 }
-
 header #logo {
   color: #fff;
   font-weight: 100;
@@ -33,16 +58,13 @@ header #logo {
   width: min(90vw, 800px);
   margin: auto;
 }
-
 .container #balance {
   margin-top: -8rem;
 }
-
 .container #balance h2 {
   color: white;
   margin-top: 0;
 }
-
 .container #balance .card {
   background: white;
   padding: 1.5rem 2rem;
@@ -50,21 +72,26 @@ header #logo {
   margin-bottom: 2rem;
   color: #363f5f;
 }
-
 .container #balance .card h3 {
   font-weight: normal;
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .container #balance .card p {
   font-size: 2rem;
   line-height: 3rem;
   margin-top: 1rem;
 }
-
 .container #balance .card.total {
   background: #49AA26;
   color: white;
+}
+.container #transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
 }
 
 #data-table {
@@ -77,40 +104,62 @@ table thead th:first-child,
 table tbody td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
 }
-
+table thead th:last-child,
+table tbody td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
 table td {
   padding: 1rem 2rem;
 }
-
 table td.description {
   color: #363f5f;
 }
-
 table td.income {
   color: #12a454;
 }
-
 table td.expense {
   color: #e92929;
 }
-
-table td,
-table th {
+table td, table th {
   background: white;
 }
-
 table th {
   font-weight: normal;
   padding: 1rem 2rem;
   text-align: left;
 }
-
 table tbody tr {
   opacity: 0.7;
 }
-
 table tbody tr:hover {
   opacity: 1;
+}
+
+a {
+  color: #49AA26;
+}
+a:hover {
+  color: #3dd705;
+}
+
+.button.new {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: white;
+  background: #49AA26;
+  padding: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3dd705;
 }
 
 footer {
@@ -120,3 +169,67 @@ footer {
   opacity: 0.6;
 }
 
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-overlay .modal {
+  background: #F0F2F5;
+  padding: 2.4rem;
+  position: relative;
+}
+.modal-overlay .modal #form {
+  max-width: 500px;
+}
+.modal-overlay .modal #form h2 {
+  margin-top: 0;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+.input-group input {
+  border: none;
+  border-radius: 0.2rem;
+  width: 100%;
+  padding: 0.8rem;
+}
+.input-group small {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button, .input-group.actions button {
+  width: 48%;
+}
+.input-group.actions .button.cancel {
+  color: #e92929;
+  border: 2px #e92929 solid;
+  border-radius: 0.25rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+.input-group.actions .button.cancel:hover {
+  opacity: 1;
+}
