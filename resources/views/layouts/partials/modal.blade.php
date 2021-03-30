@@ -1,4 +1,4 @@
-<div class="modal-overlay active">
+<div class="modal-overlay">
     <div class="modal">
         <div id="form">
             <h2>Nova Transação</h2>
