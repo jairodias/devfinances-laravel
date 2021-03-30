@@ -8,4 +8,4 @@ require('./bootstrap');
 
 require('./libs/webservice');
 require('./components/modal');
-require('./home');
+require('./home/modal');

@@ -37354,7 +37354,7 @@ __webpack_require__(/*! ./libs/webservice */ "./resources/assets/js/libs/webserv
 
 __webpack_require__(/*! ./components/modal */ "./resources/assets/js/components/modal.js");
 
-__webpack_require__(/*! ./home */ "./resources/assets/js/home.js");
+__webpack_require__(/*! ./home/modal */ "./resources/assets/js/home/modal.js");
 
 /***/ }),
 
@@ -37426,16 +37426,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/home.js":
-/*!*************************************!*\
-  !*** ./resources/assets/js/home.js ***!
-  \*************************************/
+/***/ "./resources/assets/js/home/modal.js":
+/*!*******************************************!*\
+  !*** ./resources/assets/js/home/modal.js ***!
+  \*******************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/modal.js */ "./resources/assets/js/components/modal.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/modal.js */ "./resources/assets/js/components/modal.js");
 
 $(document).ready(function () {
   $('.new').on('click', function () {
