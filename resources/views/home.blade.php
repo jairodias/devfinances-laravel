@@ -10,14 +10,14 @@
                     <span>Entradas</span>
                     <img src="{{ asset('assets/income.svg')}}" alt="Imagem de entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ {{ $incomes }}</p>
             </div>
             <div class="card">
                 <h3>
                     <span>Saídas</span>
                     <img src="{{ asset('assets/expense.svg')}}" alt="Imagem de entradas">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ {{ $expenses }}</p>
             </div>
 
             <div class="card total">
@@ -25,7 +25,7 @@
                     <span>Total</span>
                     <img src="{{ asset('assets/total.svg')}}" alt="Imagem de entradas">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">{{ $total }}</p>
             </div>
 
         </section>
@@ -47,32 +47,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td>
-                            <img src="{{ asset('assets/minus.svg') }}" alt="Remover Transação">
-                        </td>
-                    </tr>
+                    @foreach($transactions as $transaction)
+                        <tr>
+                            <td class="description">Luz</td>
+                            @if($transaction->movement < 0)
+                                <td class="expense">{{ $transaction->movementFormatted }}</td>
+                            @else
+                                <td class="income">{{ $transaction->movementFormatted }}</td>
+                            @endif
+                            <td class="date">23/01/2021</td>
+                            <td>
+                                <a href="{{ route('transaction.remove', ['transaction' => $transaction->id ])}}">
+                                    <img src="{{ asset('assets/minus.svg') }}" alt="Remover Transação">
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
 
-                    <tr>
-                        <td class="description">Website</td>
-                        <td class="income">- R$ 5.000,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td>
-                            <img src="{{ asset('assets/minus.svg') }}" alt="Remover Transação">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="description">Internet</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">23/01/2021</td>
-                        <td>
-                            <img src="{{ asset('assets/minus.svg') }}" alt="Remover Transação">
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </section>

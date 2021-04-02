@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group([
+    'prefix' => 'transaction/',
+    'as' => 'transaction.'
+], function () {
+    Route::get('{transaction}', 'TransactionController@delete')->name('remove');
+});

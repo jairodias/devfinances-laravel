@@ -1,4 +1,5 @@
-import utils from '../libs/utils';
+import utils from '../libs/utils'
+import Transactions from './transaction'
 
 export default {
     transactionsContainer: document.querySelector('#data-table tbody'),
@@ -25,5 +26,20 @@ export default {
 
         return html
 
+    },
+
+    updateBalance() {
+        document.getElementById('incomeDisplay')
+            .innerHTML = utils.formatCurrency(Transactions.incomes())
+
+        document.getElementById('expenseDisplay')
+        .innerHTML = utils.formatCurrency(Transactions.expenses())
+
+        document.getElementById('totalDisplay')
+        .innerHTML = utils.formatCurrency(Transactions.total())
+    },
+
+    clearTransactions() {
+        this.transactionsContainer.innerHTML = ""
     }
 }

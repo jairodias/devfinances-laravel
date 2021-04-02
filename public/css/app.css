@@ -231,3 +231,46 @@ footer {
   justify-content: center;
   opacity: 0.6;
 }
+
+.success {
+  position: absolute;
+  left: -450px;
+  bottom: 45px;
+  background: #FFF;
+  padding: 2rem;
+  width: 300px;
+  border-radius: 0.4rem;
+  -webkit-animation-name: alert;
+          animation-name: alert;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  border-left: 5px solid #49AA26;
+}
+
+@-webkit-keyframes alert {
+  0%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    left: 15px;
+  }
+  50% {
+    opacity: 1;
+    left: 15px;
+  }
+}
+
+@keyframes alert {
+  0%, 100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    left: 15px;
+  }
+  50% {
+    opacity: 1;
+    left: 15px;
+  }
+}

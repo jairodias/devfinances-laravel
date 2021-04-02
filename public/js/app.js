@@ -37480,9 +37480,6 @@ var WebService = /*#__PURE__*/function () {
       $.ajax({
         type: "GET",
         dataType: "json",
-        headers: {
-          'API-TOKEN': Cookie.get('API-TOKEN')
-        },
         async: true,
         timeout: this.timeout,
         cache: false,
@@ -37504,9 +37501,6 @@ var WebService = /*#__PURE__*/function () {
         type: "POST",
         contentType: 'application/json',
         processData: false,
-        headers: {
-          'API-TOKEN': Cookie.get('API-TOKEN')
-        },
         async: true,
         timeout: this.timeout,
         url: this.url + path,
@@ -37528,9 +37522,6 @@ var WebService = /*#__PURE__*/function () {
         type: "PUT",
         contentType: 'application/json',
         processData: false,
-        headers: {
-          'API-TOKEN': Cookie.get('API-TOKEN')
-        },
         async: true,
         timeout: this.timeout,
         url: this.url + path,
@@ -37551,9 +37542,6 @@ var WebService = /*#__PURE__*/function () {
       $.ajax({
         type: "DELETE",
         dataType: "json",
-        headers: {
-          'API-TOKEN': Cookie.get('API-TOKEN')
-        },
         async: true,
         timeout: this.timeout,
         cache: false,

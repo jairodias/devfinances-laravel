@@ -13,9 +13,6 @@ class WebService {
         $.ajax({
             type: "GET",
             dataType: "json",
-            headers: {
-                'API-TOKEN': Cookie.get('API-TOKEN')
-            },
             async: true,
             timeout: this.timeout,
             cache: false,
@@ -34,9 +31,6 @@ class WebService {
             type: "POST",
             contentType: 'application/json',
             processData: false,
-            headers: {
-                'API-TOKEN': Cookie.get('API-TOKEN')
-            },
             async: true,
             timeout: this.timeout,
             url: this.url + path,
@@ -55,9 +49,6 @@ class WebService {
             type: "PUT",
             contentType: 'application/json',
             processData: false,
-            headers: {
-                'API-TOKEN': Cookie.get('API-TOKEN')
-            },
             async: true,
             timeout: this.timeout,
             url: this.url + path,
@@ -75,9 +66,6 @@ class WebService {
         $.ajax({
             type: "DELETE",
             dataType: "json",
-            headers: {
-                'API-TOKEN': Cookie.get('API-TOKEN')
-            },
             async: true,
             timeout: this.timeout,
             cache: false,
