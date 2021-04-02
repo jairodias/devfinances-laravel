@@ -16,10 +16,12 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->float('movement');
+            $table->string('description');
+            $table->date('created_at');
             $table->foreignId('user_id')
                 ->constrained()
                 ->onDelete('cascade');
-            $table->timestamps();
+
         });
     }
 

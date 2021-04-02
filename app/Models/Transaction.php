@@ -21,12 +21,20 @@ class Transaction extends Authenticatable
 {
     protected $fillable = [
         'movement',
+        'description',
+        'created_at',
         'user_id'
     ];
 
     protected $appends = [
         'movementFormatted'
     ];
+
+    protected $dates = [
+        'created_at' => 'date'
+    ];
+
+    public $timestamps = null;
 
     public function user(): BelongsTo
     {

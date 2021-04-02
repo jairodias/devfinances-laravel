@@ -2,7 +2,10 @@
     <div class="modal">
         <div id="form">
             <h2>Nova Transação</h2>
-            <form action="">
+            <form action="{{ route('transaction.create') }}" method="POST">
+                @csrf
+
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 <div class="input-group">
                     <label class="sr-only" for="description">Descrição</label>
                     <input
@@ -14,22 +17,22 @@
                 </div>
 
                 <div class="input-group">
-                    <label class="sr-only" for="amount">Valor</label>
+                    <label class="sr-only" for="movement">Valor</label>
                     <input
                         type="number"
-                        id="amount"
-                        name="amount"
+                        id="movement"
+                        name="movement"
                         placeholder="0,00"
                     />
                     <small class="help">Use o sinal - (negativo) paara despesas e, (vígula) para casas decimais</small>
                 </div>
 
                 <div class="input-group">
-                    <label class="sr-only" for="date">Data</label>
+                    <label class="sr-only" for="created_at">Data</label>
                     <input
                         type="date"
-                        id="date"
-                        name="date"
+                        id="created_at"
+                        name="created_at"
                     />
                 </div>
 
